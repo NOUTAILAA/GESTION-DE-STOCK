@@ -24,5 +24,26 @@ Gestion de Stock est une application desktop développée en Python avec Tkinter
 ## Installation
 
 1. **Clonez le dépôt :**
-   ```bash
    git clone https://github.com/NOUTAILAA/GESTION-DE-STOCK.git
+  
+2. **Installez les bibliothèques nécessaires :**
+pip install mysql-connector-python ttkthemes
+
+3. **Configurez la base de données :**
+Créez une base de données MySQL nommée gestion_stock.
+Créez les tables nécessaires :
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE produits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    quantite INT NOT NULL,
+    prix DECIMAL(10, 2) NOT NULL,
+    categorie_id INT,
+    FOREIGN KEY (categorie_id) REFERENCES categories(id)
+);
+4. **Configurez la base de données :**
+python gestionstockcomplet.py
